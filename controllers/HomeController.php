@@ -1,12 +1,15 @@
-<?php 
-class HomeController{
-  public function index(){
-    
+<?php
+require('./services/ArticleService.php');
+class HomeController
+{
+  public function index()
+  {
+    $articleService = new ArticleService();
+    $articles = $articleService->getAllArticle();
 
-    require_once('./views/layout/header.php');
-    require_once('./views/layout/sliders.php');
-    require_once('./views/layout/footer.php');
+    include('./views/layout/header.php');
+    include('./views/layout/sliders.php');
+    include('./views/article/index.php');
+    include('./views/layout/footer.php');
   }
 }
-
-?>
